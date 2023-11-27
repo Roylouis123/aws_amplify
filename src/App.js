@@ -1,9 +1,16 @@
+import {View,Button,Heading,Image,Card,withAuthenticator} from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css';
+import YourComponent from './lamda';
 
-
-function App() {
+function App({signOut}) {
   return (
-    <div style={{textAlign: 'center',height: '100vh',width: '100vw',padding: '10px'}}><h1>Hii world</h1></div>
-  );
+<View>
+  <Card>
+    <Heading>You are Auth!  <Button onClick={signOut}>Sign out</Button>
+</Heading>
+    <div><YourComponent/></div>
+  </Card>
+</View>);
 }
 
-export default App;
+export default withAuthenticator(App);
